@@ -12,10 +12,12 @@
     <PackageReference Include="Plotly.NET" Version="3.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SPY_Daily_ML\SPY_Daily_ML.csproj" />
     <ProjectReference Include="..\SPY_Monthly_ML\SPY_Monthly_ML.csproj" />
     <ProjectReference Include="..\SPY_Weekly_ML\SPY_Weekly_ML.csproj" />
   </ItemGroup>
   <ItemGroup Label="Test">
+    <None Include="api_key.txt.user" />
     <None Include="Test.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
