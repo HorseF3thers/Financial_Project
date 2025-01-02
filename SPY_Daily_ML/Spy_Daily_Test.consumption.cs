@@ -77,7 +77,7 @@ namespace SPY_Daily_ML
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("Test.mlnet");
+        private static string MLNetModelPath = Path.GetFullPath("Spy_Daily_Test.mlnet");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 

@@ -6,11 +6,11 @@ using SPY_Daily_ML;
 // Create single instance of sample data from first line of dataset for model input
 Test.ModelInput sampleData = new Test.ModelInput()
 {
-    Timestamp = @"2024-12-30",
-    Open = 587.89F,
-    High = 591.74F,
-    Low = 584.41F,
-    Volume = 56578756F,
+    Timestamp = @"2025-01-03",
+    Open = 589.39F,
+    High = 591.13F,
+    Low = 580.50F,
+    Volume = 46998756F,
 };
 
 
@@ -18,12 +18,11 @@ Test.ModelInput sampleData = new Test.ModelInput()
 Console.WriteLine("Using model to make single prediction -- Comparing actual Close with predicted Close from sample data...\n\n");
 
 
-Console.WriteLine($"Timestamp: {@"2024-12-30"}");
-Console.WriteLine($"Open: {587.89F}");
-Console.WriteLine($"High: {591.74F}");
-Console.WriteLine($"Low: {584.41F}");
-Console.WriteLine($"Close: {588.22F}");
-Console.WriteLine($"Volume: {56578756F}");
+Console.WriteLine($"Timestamp: "+sampleData.Timestamp);
+Console.WriteLine($"Open: "+sampleData.Open);
+Console.WriteLine($"High: "+sampleData.High);
+Console.WriteLine($"Low: "+sampleData.Low);
+Console.WriteLine($"Volume: "+sampleData.Volume);
 
 
 // Make a single prediction on the sample data and print results
