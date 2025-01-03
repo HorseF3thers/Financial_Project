@@ -4,7 +4,7 @@
 using SPY_Monthly_ML;
 
 // Create single instance of sample data from first line of dataset for model input
-Test.ModelInput sampleData = new Test.ModelInput()
+Spy_Monthly_Test.ModelInput sampleData = new Spy_Monthly_Test.ModelInput()
 {
     Timestamp = @"2025-01-29",
     Open = 602.97F,
@@ -25,7 +25,7 @@ Console.WriteLine($"Volume: " + sampleData.Volume);
 
 
 // Make a single prediction on the sample data and print results
-var predictionResult = Test.Predict(sampleData);
+var predictionResult = Spy_Monthly_Test.Predict(sampleData);
 Console.WriteLine($"\n\nPredicted Close: {predictionResult.Score}\n\n");
 
 Console.WriteLine("=============== End of process, hit any key to finish ===============");

@@ -6,9 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML;
-using Microsoft.ML.Data;
-using Microsoft.ML.Trainers;
-using Microsoft.ML.Trainers.FastTree;
 
 namespace Financial_Project
 {
@@ -90,10 +87,7 @@ namespace Financial_Project
         public static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations
-            var pipeline = mlContext.Transforms.ReplaceMissingValues(new []{new InputOutputColumnPair(@"open", @"open"),new InputOutputColumnPair(@"high", @"high"),new InputOutputColumnPair(@"low", @"low"),new InputOutputColumnPair(@"volume", @"volume")})      
-                                    .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName:@"timestamp",outputColumnName:@"timestamp"))      
-                                    .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"open",@"high",@"low",@"volume",@"timestamp"}))      
-                                    .Append(mlContext.Regression.Trainers.FastTree(new FastTreeRegressionTrainer.Options(){NumberOfLeaves=18,MinimumExampleCountPerLeaf=2,NumberOfTrees=14666,MaximumBinCountPerFeature=409,FeatureFraction=0.42248785845544456,LearningRate=0.002386613960632473,LabelColumnName=@"close",FeatureColumnName=@"Features",DiskTranspose=false}));
+            var pipeline = mlContext.Forecasting.ForecastBySsa(windowSize:2,seriesLength:10,trainSize:6333,horizon:5,outputColumnName:@"close",inputColumnName:@"close",confidenceLowerBoundColumn:@"close_LB",confidenceUpperBoundColumn:@"close_UB");
 
             return pipeline;
         }

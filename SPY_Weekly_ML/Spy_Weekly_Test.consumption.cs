@@ -7,10 +7,10 @@ using System.IO;
 using System.Collections.Generic;
 namespace SPY_Weekly_ML
 {
-    public partial class Test
+    public partial class Spy_Weekly_Test
     {
         /// <summary>
-        /// model input class for Test.
+        /// model input class for Spy_Weekly_Test.
         /// </summary>
         #region model input class
         public class ModelInput
@@ -44,7 +44,7 @@ namespace SPY_Weekly_ML
         #endregion
 
         /// <summary>
-        /// model output class for Test.
+        /// model output class for Spy_Weekly_Test.
         /// </summary>
         #region model output class
         public class ModelOutput

@@ -12,9 +12,9 @@ using Microsoft.ML.Trainers.FastTree;
 
 namespace SPY_Monthly_ML
 {
-    public partial class Test
+    public partial class Spy_Monthly_Test
     {
-        public const string RetrainFilePath =  @"C:\Users\Josh E\Downloads\monthly_SPY.csv";
+        public const string RetrainFilePath =  @"C:\Users\Josh E\Desktop\Data to train on\monthly_SPY.csv";
         public const char RetrainSeparatorChar = ',';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;
@@ -93,7 +93,7 @@ namespace SPY_Monthly_ML
             var pipeline = mlContext.Transforms.ReplaceMissingValues(new []{new InputOutputColumnPair(@"open", @"open"),new InputOutputColumnPair(@"high", @"high"),new InputOutputColumnPair(@"low", @"low"),new InputOutputColumnPair(@"volume", @"volume")})      
                                     .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName:@"timestamp",outputColumnName:@"timestamp"))      
                                     .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"open",@"high",@"low",@"volume",@"timestamp"}))      
-                                    .Append(mlContext.Regression.Trainers.FastTree(new FastTreeRegressionTrainer.Options(){NumberOfLeaves=4,MinimumExampleCountPerLeaf=3,NumberOfTrees=32767,MaximumBinCountPerFeature=279,FeatureFraction=0.7508732459633142,LearningRate=0.016580011969914793,LabelColumnName=@"close",FeatureColumnName=@"Features",DiskTranspose=false}));
+                                    .Append(mlContext.Regression.Trainers.FastTree(new FastTreeRegressionTrainer.Options(){NumberOfLeaves=227,MinimumExampleCountPerLeaf=2,NumberOfTrees=4472,MaximumBinCountPerFeature=287,FeatureFraction=0.99999999,LearningRate=0.0014937351991453599,LabelColumnName=@"close",FeatureColumnName=@"Features",DiskTranspose=false}));
 
             return pipeline;
         }
