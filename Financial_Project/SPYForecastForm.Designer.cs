@@ -36,32 +36,35 @@ namespace Financial_Project
             components = new System.ComponentModel.Container();
             bindingSource1 = new BindingSource(components);
             panel1 = new Panel();
+            folderBrowserDialog1 = new FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.AutoSize = true;
             panel1.Location = new Point(25, 26);
             panel1.Name = "panel1";
-            panel1.Size = new Size(738, 398);
+            panel1.Size = new Size(1219, 689);
             panel1.TabIndex = 0;
             // 
-            // Form1
+            // SPYForecastForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1256, 727);
             Controls.Add(panel1);
-            Name = "Form1";
+            Name = "SPYForecastForm";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
-
+            PerformLayout();
         }
 
         #endregion
 
         private BindingSource bindingSource1;
         private Panel panel1;
+        private FolderBrowserDialog folderBrowserDialog1;
     }
 }

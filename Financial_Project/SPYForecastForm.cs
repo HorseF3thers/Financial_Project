@@ -1,3 +1,4 @@
+using ScottPlot;
 using ScottPlot.WinForms;
 
 namespace Financial_Project
@@ -28,9 +29,28 @@ namespace Financial_Project
 
             double[] dataUB = new double[SpyForecast.Close_UB.Length];
             Array.Copy(SpyForecast.Close_UB, dataUB, SpyForecast.Close_UB.Length);
-            FormsPlot1.Plot.Add.Signal(dataLB);
-            FormsPlot1.Plot.Add.Signal(dataUB);
-            FormsPlot1.Plot.Add.Signal(dataC);
+            double[] index = { 0, 1, 2, 3, 4 };
+
+
+            var sp = FormsPlot1.Plot.Add.Scatter(index, dataC, new ScottPlot.Color(0,0,255));
+            sp.LineWidth = 4;
+            sp.MarkerSize = 10;
+            var sp1 = FormsPlot1.Plot.Add.Scatter(index, dataLB, new ScottPlot.Color(255, 0, 0));
+            sp1.LineWidth = 4;
+            sp1.MarkerSize = 10;
+            var sp2 = FormsPlot1.Plot.Add.Scatter(index, dataUB, new ScottPlot.Color(0, 255, 0));
+            sp2.LineWidth = 4;
+            sp2.MarkerSize = 10;
+            FormsPlot1.Plot.Axes.AutoScale();
+            string filePath = "C:\\Users\\Josh E\\Documents\\Spy_Forecast\\1-3-25\\SPYForecast.png";
+            if(!File.Exists(filePath))
+            {
+                FormsPlot1.Plot.SavePng(filePath, 500, 375);
+            }
+            else
+            {
+                Console.WriteLine("File already exists");
+            }
             FormsPlot1.Refresh();
         }
     }

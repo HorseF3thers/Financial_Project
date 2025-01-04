@@ -45,7 +45,7 @@ namespace SPY_Daily_Forecast_ML
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath(@"C:\Users\Josh E\source\repos\Financial_Project\Financial_Project\Test.mlnet");
+        private static string MLNetModelPath = Path.GetFullPath(@"C:\Users\Josh E\source\repos\Financial_Project\SPY_Daily_Forecast_ML\Test.mlnet");
 
         public static readonly Lazy<TimeSeriesPredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<TimeSeriesPredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 

@@ -37,6 +37,17 @@ namespace Financial_Project
             form1.FormsPlot1.Plot.Add.Scatter(dataUB, index);
             form1.FormsPlot1.Plot.Add.Scatter(dataC, index);
 
+            // predict with default option.
+            var modelOutput = SPY_Daily_Forecast_ML.Test.Predict();
+            Console.WriteLine("Close: " + string.Join(",", modelOutput.Close));
+            Console.WriteLine("LB: " + string.Join(",", modelOutput.Close_LB));
+            Console.WriteLine("UB: " + string.Join(",", modelOutput.Close_UB));
+
+            // predict next 5 periods
+            modelOutput = SPY_Daily_Forecast_ML.Test.Predict(horizon: 5);
+            Console.WriteLine("Close: " + string.Join(",", modelOutput.Close));
+            Console.WriteLine("LB: " + string.Join(",", modelOutput.Close_LB));
+            Console.WriteLine("UB: " + string.Join(",", modelOutput.Close_UB));
         }
     }
 }
