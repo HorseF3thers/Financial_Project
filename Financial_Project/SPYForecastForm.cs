@@ -36,7 +36,7 @@ namespace Financial_Project
             sp2.LineWidth = 4;
             sp2.MarkerSize = 10;
             FormsPlot1.Plot.Axes.AutoScale();
-            string filePath = "C:\\Users\\Josh E\\Documents\\Spy_Forecast\\1-3-25\\SPYForecast.png";
+            /**string filePath = "C:\\Users\\Josh E\\Documents\\Spy_Forecast\\1-3-25\\SPYForecast.png";
             if (!File.Exists(filePath))
             {
                 FormsPlot1.Plot.SavePng(filePath, 500, 375);
@@ -44,7 +44,7 @@ namespace Financial_Project
             else
             {
                 Console.WriteLine("File already exists");
-            }
+            }**/
             FormsPlot1.Refresh();
         }
 
@@ -55,7 +55,7 @@ namespace Financial_Project
             DialogResult result = saveFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                string filePath = saveFileDialog1.FileName + ".png";
+                string filePath = saveFileDialog1.FileName;
                 FormsPlot1.Plot.SavePng(filePath, 500, 375);
             }
         }
