@@ -37,6 +37,7 @@ namespace Financial_Project
             bindingSource1 = new BindingSource(components);
             panel1 = new Panel();
             folderBrowserDialog1 = new FolderBrowserDialog();
+            saveButton = new Button();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
@@ -48,11 +49,23 @@ namespace Financial_Project
             panel1.Size = new Size(1219, 689);
             panel1.TabIndex = 0;
             // 
+            // saveButton
+            // 
+            saveButton.BackColor = SystemColors.AppWorkspace;
+            saveButton.Location = new Point(1132, 734);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(112, 34);
+            saveButton.TabIndex = 1;
+            saveButton.Text = "Save";
+            saveButton.UseVisualStyleBackColor = false;
+            saveButton.Click += saveButton_Click;
+            // 
             // SPYForecastForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1256, 727);
+            ClientSize = new Size(1334, 780);
+            Controls.Add(saveButton);
             Controls.Add(panel1);
             Name = "SPYForecastForm";
             Text = "Form1";
@@ -66,5 +79,6 @@ namespace Financial_Project
         private BindingSource bindingSource1;
         private Panel panel1;
         private FolderBrowserDialog folderBrowserDialog1;
+        private Button saveButton;
     }
 }

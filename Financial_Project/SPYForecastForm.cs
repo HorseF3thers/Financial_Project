@@ -12,12 +12,6 @@ namespace Financial_Project
 
             panel1.Controls.Add(FormsPlot1);
 
-            // Plot data using the control
-            //double[] data = ScottPlot.Generate.Sin();
-            //FormsPlot1.Plot.Add.Signal(data);
-
-
-
             var SpyForecast = SPY_Daily_Forecast_ML.Test.Predict();
             SpyForecast = SPY_Daily_Forecast_ML.Test.Predict(horizon: 5);
 
@@ -32,7 +26,7 @@ namespace Financial_Project
             double[] index = { 0, 1, 2, 3, 4 };
 
 
-            var sp = FormsPlot1.Plot.Add.Scatter(index, dataC, new ScottPlot.Color(0,0,255));
+            var sp = FormsPlot1.Plot.Add.Scatter(index, dataC, new ScottPlot.Color(0, 0, 255));
             sp.LineWidth = 4;
             sp.MarkerSize = 10;
             var sp1 = FormsPlot1.Plot.Add.Scatter(index, dataLB, new ScottPlot.Color(255, 0, 0));
@@ -43,7 +37,7 @@ namespace Financial_Project
             sp2.MarkerSize = 10;
             FormsPlot1.Plot.Axes.AutoScale();
             string filePath = "C:\\Users\\Josh E\\Documents\\Spy_Forecast\\1-3-25\\SPYForecast.png";
-            if(!File.Exists(filePath))
+            if (!File.Exists(filePath))
             {
                 FormsPlot1.Plot.SavePng(filePath, 500, 375);
             }
@@ -52,6 +46,18 @@ namespace Financial_Project
                 Console.WriteLine("File already exists");
             }
             FormsPlot1.Refresh();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "PNG Image|*.png";
+            DialogResult result = saveFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string filePath = saveFileDialog1.FileName + ".png";
+                FormsPlot1.Plot.SavePng(filePath, 500, 375);
+            }
         }
     }
 }
