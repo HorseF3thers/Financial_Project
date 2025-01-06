@@ -34,7 +34,7 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
-            forecast_ML = new Button();
+            forecast_ML_Button = new Button();
             tickerEntry = new ComboBox();
             tickerLabel = new Label();
             durationLabel = new Label();
@@ -42,6 +42,14 @@
             chartTypeLabel = new Label();
             chartTypeCB = new ComboBox();
             checkBox1 = new CheckBox();
+            mlCB = new ComboBox();
+            openChartButton = new Button();
+            openChartCB = new ComboBox();
+            HeatmapButton = new Button();
+            financial_Data_Button = new Button();
+            financialDataCB = new ComboBox();
+            richTextBox1 = new RichTextBox();
+            SPY_data_panel.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,6 +64,7 @@
             // SPY_data_panel
             // 
             SPY_data_panel.BackColor = SystemColors.ActiveCaption;
+            SPY_data_panel.Controls.Add(richTextBox1);
             SPY_data_panel.Location = new Point(12, 140);
             SPY_data_panel.Name = "SPY_data_panel";
             SPY_data_panel.Size = new Size(347, 367);
@@ -80,15 +89,15 @@
             toolStripMenuItem2.Size = new Size(243, 32);
             toolStripMenuItem2.Text = "toolStripMenuItem2";
             // 
-            // forecast_ML
+            // forecast_ML_Button
             // 
-            forecast_ML.Location = new Point(209, 551);
-            forecast_ML.Name = "forecast_ML";
-            forecast_ML.Size = new Size(150, 50);
-            forecast_ML.TabIndex = 2;
-            forecast_ML.Text = "Forecast ML";
-            forecast_ML.UseVisualStyleBackColor = true;
-            forecast_ML.Click += forecast_ML_Click;
+            forecast_ML_Button.Location = new Point(209, 551);
+            forecast_ML_Button.Name = "forecast_ML_Button";
+            forecast_ML_Button.Size = new Size(150, 50);
+            forecast_ML_Button.TabIndex = 2;
+            forecast_ML_Button.Text = "Forecast ML";
+            forecast_ML_Button.UseVisualStyleBackColor = true;
+            forecast_ML_Button.Click += forecast_ML_Click;
             // 
             // tickerEntry
             // 
@@ -151,12 +160,77 @@
             checkBox1.Text = "Darkmode";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // mlCB
+            // 
+            mlCB.FormattingEnabled = true;
+            mlCB.Location = new Point(21, 561);
+            mlCB.Name = "mlCB";
+            mlCB.Size = new Size(182, 33);
+            mlCB.TabIndex = 11;
+            // 
+            // openChartButton
+            // 
+            openChartButton.Location = new Point(209, 635);
+            openChartButton.Name = "openChartButton";
+            openChartButton.Size = new Size(150, 50);
+            openChartButton.TabIndex = 12;
+            openChartButton.Text = "Open Chart";
+            openChartButton.UseVisualStyleBackColor = true;
+            // 
+            // openChartCB
+            // 
+            openChartCB.FormattingEnabled = true;
+            openChartCB.Location = new Point(21, 645);
+            openChartCB.Name = "openChartCB";
+            openChartCB.Size = new Size(182, 33);
+            openChartCB.TabIndex = 13;
+            // 
+            // HeatmapButton
+            // 
+            HeatmapButton.Location = new Point(209, 866);
+            HeatmapButton.Name = "HeatmapButton";
+            HeatmapButton.Size = new Size(150, 50);
+            HeatmapButton.TabIndex = 14;
+            HeatmapButton.Text = "Heatmap";
+            HeatmapButton.UseVisualStyleBackColor = true;
+            // 
+            // financial_Data_Button
+            // 
+            financial_Data_Button.Location = new Point(209, 723);
+            financial_Data_Button.Name = "financial_Data_Button";
+            financial_Data_Button.Size = new Size(150, 50);
+            financial_Data_Button.TabIndex = 15;
+            financial_Data_Button.Text = "Financial Data";
+            financial_Data_Button.UseVisualStyleBackColor = true;
+            // 
+            // financialDataCB
+            // 
+            financialDataCB.FormattingEnabled = true;
+            financialDataCB.Location = new Point(21, 733);
+            financialDataCB.Name = "financialDataCB";
+            financialDataCB.Size = new Size(182, 33);
+            financialDataCB.TabIndex = 16;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(9, 12);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(323, 341);
+            richTextBox1.TabIndex = 0;
+            richTextBox1.Text = "";
+            // 
             // Main_Menu_Form
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(1609, 996);
+            Controls.Add(financialDataCB);
+            Controls.Add(financial_Data_Button);
+            Controls.Add(HeatmapButton);
+            Controls.Add(openChartCB);
+            Controls.Add(openChartButton);
+            Controls.Add(mlCB);
             Controls.Add(checkBox1);
             Controls.Add(chartTypeCB);
             Controls.Add(chartTypeLabel);
@@ -164,11 +238,12 @@
             Controls.Add(durationLabel);
             Controls.Add(tickerLabel);
             Controls.Add(tickerEntry);
-            Controls.Add(forecast_ML);
+            Controls.Add(forecast_ML_Button);
             Controls.Add(SPY_data_panel);
             Controls.Add(chart_panel);
             Name = "Main_Menu_Form";
             Text = "Main_Menu_Form";
+            SPY_data_panel.ResumeLayout(false);
             contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -181,7 +256,7 @@
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem toolStripMenuItem2;
-        private Button forecast_ML;
+        private Button forecast_ML_Button;
         private ComboBox tickerEntry;
         private Label tickerLabel;
         private Label durationLabel;
@@ -189,5 +264,12 @@
         private Label chartTypeLabel;
         private ComboBox chartTypeCB;
         private CheckBox checkBox1;
+        private ComboBox mlCB;
+        private Button openChartButton;
+        private ComboBox openChartCB;
+        private Button HeatmapButton;
+        private Button financial_Data_Button;
+        private ComboBox financialDataCB;
+        private RichTextBox richTextBox1;
     }
 }

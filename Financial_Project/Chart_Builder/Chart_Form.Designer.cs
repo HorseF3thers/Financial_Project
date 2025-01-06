@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Chart_Form";
+            chartPanel = new Panel();
+            SuspendLayout();
+            // 
+            // chartPanel
+            // 
+            chartPanel.BackColor = SystemColors.ActiveCaption;
+            chartPanel.Location = new Point(12, 12);
+            chartPanel.Name = "chartPanel";
+            chartPanel.Size = new Size(1120, 717);
+            chartPanel.TabIndex = 0;
+            // 
+            // Chart_Form
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveBorder;
+            ClientSize = new Size(1144, 741);
+            Controls.Add(chartPanel);
+            Name = "Chart_Form";
+            Text = "Chart_Form";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel chartPanel;
     }
 }
