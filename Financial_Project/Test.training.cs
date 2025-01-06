@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML;
+using Microsoft.ML.Data;
+using Microsoft.ML.Trainers;
 
 namespace Financial_Project
 {
     public partial class Test
     {
-        public const string RetrainFilePath =  @"C:\Users\Josh E\Downloads\daily_SPY.csv";
+        public const string RetrainFilePath =  @"C:\Users\Josh E\Downloads\VIX_History.csv";
         public const char RetrainSeparatorChar = ',';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;
@@ -87,7 +89,10 @@ namespace Financial_Project
         public static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations
-            var pipeline = mlContext.Forecasting.ForecastBySsa(windowSize:2,seriesLength:10,trainSize:6333,horizon:5,outputColumnName:@"close",inputColumnName:@"close",confidenceLowerBoundColumn:@"close_LB",confidenceUpperBoundColumn:@"close_UB");
+            var pipeline = mlContext.Transforms.ReplaceMissingValues(new []{new InputOutputColumnPair(@"OPEN", @"OPEN"),new InputOutputColumnPair(@"HIGH", @"HIGH"),new InputOutputColumnPair(@"LOW", @"LOW")})      
+                                    .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName:@"DATE",outputColumnName:@"DATE"))      
+                                    .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"OPEN",@"HIGH",@"LOW",@"DATE"}))      
+                                    .Append(mlContext.Regression.Trainers.Sdca(new SdcaRegressionTrainer.Options(){L1Regularization=1F,L2Regularization=0.1F,LabelColumnName=@"CLOSE",FeatureColumnName=@"Features"}));
 
             return pipeline;
         }
