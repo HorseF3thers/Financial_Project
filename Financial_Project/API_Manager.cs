@@ -39,7 +39,17 @@ namespace Financial_Project
 
         public JsonDocument getFullHistorical(string ticker)
         {
-            return data;//placeholder
+            string address = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&outputsize=full&entitlement=delayed&apikey={apiKey}";
+            data = CallApiAsync(address).Result;
+            using (var stream = new MemoryStream())
+            {
+                using (var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true }))
+                {
+                    data.WriteTo(writer);
+                }
+                string formattedJson = Encoding.UTF8.GetString(stream.ToArray());
+            }
+            return data;
         }
 
         public JsonDocument getShortHistorical(string ticker)
@@ -66,7 +76,6 @@ namespace Financial_Project
         {
             apiKey = key;
         }
-
         private string LoadApiKeyFromFile(string filePath)
         {
             try

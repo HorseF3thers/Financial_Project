@@ -42,13 +42,18 @@
             durationCB = new ComboBox();
             chartTypeLabel = new Label();
             chartTypeCB = new ComboBox();
-            checkBox1 = new CheckBox();
+            darkmodeCheck = new CheckBox();
             mlCB = new ComboBox();
             openChartButton = new Button();
             openChartCB = new ComboBox();
             HeatmapButton = new Button();
             financial_Data_Button = new Button();
             financialDataCB = new ComboBox();
+            lineCheckbox = new CheckBox();
+            OHLCcheckbox = new CheckBox();
+            candleCheckbox = new CheckBox();
+            newChartButton = new Button();
+            durationCBTwo = new ComboBox();
             SPY_data_panel.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -140,6 +145,7 @@
             durationCB.Name = "durationCB";
             durationCB.Size = new Size(182, 33);
             durationCB.TabIndex = 6;
+            durationCB.SelectedIndexChanged += durationCB_SelectedIndexChanged;
             // 
             // chartTypeLabel
             // 
@@ -157,16 +163,18 @@
             chartTypeCB.Name = "chartTypeCB";
             chartTypeCB.Size = new Size(182, 33);
             chartTypeCB.TabIndex = 8;
+            chartTypeCB.Text = "Line";
+            chartTypeCB.SelectedIndexChanged += chartTypeCB_SelectedIndexChanged;
             // 
-            // checkBox1
+            // darkmodeCheck
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(1253, 104);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(122, 29);
-            checkBox1.TabIndex = 10;
-            checkBox1.Text = "Darkmode";
-            checkBox1.UseVisualStyleBackColor = true;
+            darkmodeCheck.AutoSize = true;
+            darkmodeCheck.Location = new Point(1253, 104);
+            darkmodeCheck.Name = "darkmodeCheck";
+            darkmodeCheck.Size = new Size(122, 29);
+            darkmodeCheck.TabIndex = 10;
+            darkmodeCheck.Text = "Darkmode";
+            darkmodeCheck.UseVisualStyleBackColor = true;
             // 
             // mlCB
             // 
@@ -178,7 +186,7 @@
             // 
             // openChartButton
             // 
-            openChartButton.Location = new Point(209, 635);
+            openChartButton.Location = new Point(209, 613);
             openChartButton.Name = "openChartButton";
             openChartButton.Size = new Size(150, 50);
             openChartButton.TabIndex = 12;
@@ -189,7 +197,7 @@
             // openChartCB
             // 
             openChartCB.FormattingEnabled = true;
-            openChartCB.Location = new Point(21, 645);
+            openChartCB.Location = new Point(21, 620);
             openChartCB.Name = "openChartCB";
             openChartCB.Size = new Size(182, 33);
             openChartCB.TabIndex = 13;
@@ -205,7 +213,7 @@
             // 
             // financial_Data_Button
             // 
-            financial_Data_Button.Location = new Point(209, 723);
+            financial_Data_Button.Location = new Point(209, 755);
             financial_Data_Button.Name = "financial_Data_Button";
             financial_Data_Button.Size = new Size(150, 50);
             financial_Data_Button.TabIndex = 15;
@@ -215,10 +223,64 @@
             // financialDataCB
             // 
             financialDataCB.FormattingEnabled = true;
-            financialDataCB.Location = new Point(21, 733);
+            financialDataCB.Location = new Point(21, 765);
             financialDataCB.Name = "financialDataCB";
             financialDataCB.Size = new Size(182, 33);
             financialDataCB.TabIndex = 16;
+            // 
+            // lineCheckbox
+            // 
+            lineCheckbox.AutoSize = true;
+            lineCheckbox.Checked = true;
+            lineCheckbox.CheckState = CheckState.Checked;
+            lineCheckbox.Location = new Point(21, 707);
+            lineCheckbox.Name = "lineCheckbox";
+            lineCheckbox.Size = new Size(69, 29);
+            lineCheckbox.TabIndex = 17;
+            lineCheckbox.Text = "Line";
+            lineCheckbox.UseVisualStyleBackColor = true;
+            lineCheckbox.CheckedChanged += lineCheckbox_CheckedChanged;
+            // 
+            // OHLCcheckbox
+            // 
+            OHLCcheckbox.AutoSize = true;
+            OHLCcheckbox.Location = new Point(110, 707);
+            OHLCcheckbox.Name = "OHLCcheckbox";
+            OHLCcheckbox.Size = new Size(83, 29);
+            OHLCcheckbox.TabIndex = 18;
+            OHLCcheckbox.Text = "OHLC";
+            OHLCcheckbox.UseVisualStyleBackColor = true;
+            OHLCcheckbox.CheckedChanged += OHLCcheckbox_CheckedChanged;
+            // 
+            // candleCheckbox
+            // 
+            candleCheckbox.AutoSize = true;
+            candleCheckbox.Location = new Point(218, 707);
+            candleCheckbox.Name = "candleCheckbox";
+            candleCheckbox.Size = new Size(127, 29);
+            candleCheckbox.TabIndex = 19;
+            candleCheckbox.Text = "Candlestick";
+            candleCheckbox.UseVisualStyleBackColor = true;
+            candleCheckbox.CheckedChanged += candleCheckbox_CheckedChanged;
+            // 
+            // newChartButton
+            // 
+            newChartButton.Location = new Point(1403, 99);
+            newChartButton.Name = "newChartButton";
+            newChartButton.Size = new Size(112, 34);
+            newChartButton.TabIndex = 20;
+            newChartButton.Text = "New Chart";
+            newChartButton.UseVisualStyleBackColor = true;
+            newChartButton.Click += newChartButton_Click;
+            // 
+            // durationCBTwo
+            // 
+            durationCBTwo.FormattingEnabled = true;
+            durationCBTwo.Location = new Point(21, 668);
+            durationCBTwo.Name = "durationCBTwo";
+            durationCBTwo.Size = new Size(182, 33);
+            durationCBTwo.TabIndex = 21;
+            durationCBTwo.SelectedIndexChanged += durationCBTwo_SelectedIndexChanged;
             // 
             // Main_Menu_Form
             // 
@@ -226,13 +288,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(1609, 996);
+            Controls.Add(durationCBTwo);
+            Controls.Add(newChartButton);
+            Controls.Add(candleCheckbox);
+            Controls.Add(OHLCcheckbox);
+            Controls.Add(lineCheckbox);
             Controls.Add(financialDataCB);
             Controls.Add(financial_Data_Button);
             Controls.Add(HeatmapButton);
             Controls.Add(openChartCB);
             Controls.Add(openChartButton);
             Controls.Add(mlCB);
-            Controls.Add(checkBox1);
+            Controls.Add(darkmodeCheck);
             Controls.Add(chartTypeCB);
             Controls.Add(chartTypeLabel);
             Controls.Add(durationCB);
@@ -264,7 +331,7 @@
         private ComboBox durationCB;
         private Label chartTypeLabel;
         private ComboBox chartTypeCB;
-        private CheckBox checkBox1;
+        private CheckBox darkmodeCheck;
         private ComboBox mlCB;
         private Button openChartButton;
         private ComboBox openChartCB;
@@ -272,5 +339,10 @@
         private Button financial_Data_Button;
         private ComboBox financialDataCB;
         private RichTextBox richTextBox1;
+        private CheckBox lineCheckbox;
+        private CheckBox OHLCcheckbox;
+        private CheckBox candleCheckbox;
+        private Button newChartButton;
+        private ComboBox durationCBTwo;
     }
 }

@@ -29,25 +29,35 @@
         private void InitializeComponent()
         {
             chartPanel = new Panel();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             SuspendLayout();
             // 
             // chartPanel
             // 
+            chartPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             chartPanel.AutoSize = true;
+            chartPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             chartPanel.BackColor = SystemColors.ActiveCaption;
             chartPanel.Location = new Point(12, 12);
+            chartPanel.MaximumSize = new Size(1880, 1040);
+            chartPanel.MinimumSize = new Size(500, 250);
             chartPanel.Name = "chartPanel";
-            chartPanel.Size = new Size(1120, 717);
+            chartPanel.Size = new Size(500, 250);
             chartPanel.TabIndex = 0;
             // 
             // Chart_Form
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ActiveBorder;
             Controls.Add(chartPanel);
+            MaximumSize = new Size(1920, 1080);
             Name = "Chart_Form";
-            Size = new Size(1144, 741);
+            Padding = new Padding(0, 0, 10, 10);
+            Size = new Size(525, 275);
+            Resize += Chart_Form_Resize;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -55,5 +65,6 @@
         #endregion
 
         private Panel chartPanel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

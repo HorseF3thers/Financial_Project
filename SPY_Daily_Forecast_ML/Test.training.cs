@@ -11,7 +11,7 @@ namespace SPY_Daily_Forecast_ML
 {
     public partial class Test
     {
-        public const string RetrainFilePath =  @"C:\Users\Josh E\Downloads\daily_SPY_2.csv";
+        public const string RetrainFilePath =  @"C:\Users\Josh E\Documents\Spy_Forecast\1-6-25\daily_SPY_1_6_25.csv";
         public const char RetrainSeparatorChar = ',';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;
@@ -87,7 +87,7 @@ namespace SPY_Daily_Forecast_ML
         public static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations
-            var pipeline = mlContext.Forecasting.ForecastBySsa(windowSize:2,seriesLength:10,trainSize:6334,horizon:5,outputColumnName:@"close",inputColumnName:@"close",confidenceLowerBoundColumn:@"close_LB",confidenceUpperBoundColumn:@"close_UB");
+            var pipeline = mlContext.Forecasting.ForecastBySsa(windowSize:2,seriesLength:10,trainSize:6335,horizon:5,outputColumnName:@"close",inputColumnName:@"close",confidenceLowerBoundColumn:@"close_LB",confidenceUpperBoundColumn:@"close_UB");
 
             return pipeline;
         }

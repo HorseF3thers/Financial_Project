@@ -18,16 +18,29 @@ namespace Financial_Project
     {
         public readonly FormsPlot spy = new FormsPlot() { Dock = DockStyle.Fill };
         private API_Manager apiManager;
+        string chartType = "Line";
+        List<string> chartTypeList = new List<string>();
+        List<string> duration = new List<string>();
+        string durationString = "Compact";
+        string durationStringTwo = "Compact";
         public Main_Menu_Form()
         {
             InitializeComponent();
 
             apiManager = API_Manager.GetInstance();
-            Chart_Form form = new Chart_Form("Line", "SPY", "Compact", false);
+            Chart_Form form = new Chart_Form("Candlestick", "SPY", "Compact", false);
             form.Dock = DockStyle.Fill;
-            form.AutoSize = true;
-            form.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             chart_panel.Controls.Add(form);
+
+            chartTypeList.Add("OHLC");
+            chartTypeList.Add("Candlestick");
+            chartTypeList.Add("Line");
+            duration.Add("Intraday");
+            duration.Add("Compact");
+            duration.Add("Full");
+            durationCB.DataSource = duration;
+            durationCBTwo.DataSource = duration;
+            chartTypeCB.DataSource = chartTypeList;
         }
 
         private void forecast_ML_Click(object sender, EventArgs e)
@@ -44,20 +57,88 @@ namespace Financial_Project
         private void openChartButton_Click(object sender, EventArgs e)
         {
             string ticker = openChartCB.Text;
+
             Thread thread = new Thread(() =>
             {
-                Chart_Form chart = new Chart_Form("Line", ticker, "Compact", false);
+                Chart_Form chart = new Chart_Form(chartType, ticker, durationStringTwo, false);
                 Form form = new Form();
                 Panel panel = new Panel();
-                panel.MinimumSize = new Size(1232, 844);
-                chart.MinimumSize = new Size(1222, 834);
-                form.AutoSize = true;
+                panel.Size = new Size(1242, 864);
+                panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                panel.AutoSize = true;
+
+                panel.BorderStyle = BorderStyle.Fixed3D;
+                chart.Size = new Size(1202, 814);
+                form.Size = new Size(1362, 974);
+
                 panel.Controls.Add(chart);
                 form.Controls.Add(panel);
                 Application.Run(form);
             });
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
+
+        private void OHLCcheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (OHLCcheckbox.Checked)
+            {
+                chartType = "OHLC";
+                candleCheckbox.Checked = false;
+                lineCheckbox.Checked = false;
+            }
+        }
+
+        private void candleCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (candleCheckbox.Checked)
+            {
+                chartType = "Candlestick";
+                OHLCcheckbox.Checked = false;
+                lineCheckbox.Checked = false;
+            }
+        }
+
+        private void lineCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lineCheckbox.Checked)
+            {
+                chartType = "Line";
+                OHLCcheckbox.Checked = false;
+                candleCheckbox.Checked = false;
+            }
+        }
+
+        private void newChartButton_Click(object sender, EventArgs e)
+        {
+            if (tickerEntry.Text != "")
+            {
+                string ticker = tickerEntry.Text;
+                string chartType = chartTypeCB.Text;
+                bool darkMode = darkmodeCheck.Checked;
+                Chart_Form chart = new Chart_Form(chartType, ticker, durationString, darkMode); //duration to be added later
+                chart.Dock = DockStyle.Fill;
+                chart.AutoSize = true;
+                chart.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                chart_panel.Controls.Clear();
+                chart_panel.Controls.Add(chart);
+
+            }
+        }
+
+        private void chartTypeCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            chartType = chartTypeCB.Text;
+        }
+
+        private void durationCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            durationString = durationCB.Text;
+        }
+
+        private void durationCBTwo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            durationStringTwo = durationCBTwo.Text;
         }
     }
 }

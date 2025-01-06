@@ -23,8 +23,15 @@ namespace Financial_Project.Chart_Builder
             chartBuilder.processData();
             chart = chartBuilder.buildChart();
             this.Controls.Add(chart);
-            chart.MinimumSize = new Size(1212, 824);
+            chart.Size = new Size(1202, 814);
             chartPanel.Controls.Add(chart);
+        }
+
+        private void Chart_Form_Resize(object sender, EventArgs e)
+        {
+            /**Chart_Form form = (Chart_Form)sender;
+            chart.Width = form.Width;
+            chart.Height = form.Height;**///come back to this later
         }
     }
 }

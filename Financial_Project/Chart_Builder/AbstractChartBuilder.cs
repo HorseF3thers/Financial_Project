@@ -12,7 +12,7 @@ namespace Financial_Project.Chart_Builder
     public abstract class AbstractChartBuilder
     {
         public JsonDocument data;
-        bool darkMode = false;
+        public bool darkMode = false;
         public static AbstractChartBuilder getInstance(string chartType)
         {
             switch
