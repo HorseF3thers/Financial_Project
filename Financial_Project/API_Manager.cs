@@ -44,7 +44,7 @@ namespace Financial_Project
 
         public JsonDocument getShortHistorical(string ticker)
         {
-            string address = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&apikey={apiKey}";
+            string address = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&entitlement=delayed&apikey={apiKey}";
             data = CallApiAsync(address).Result;
             using (var stream = new MemoryStream())
             {
