@@ -33,6 +33,7 @@
             // 
             // chartPanel
             // 
+            chartPanel.AutoSize = true;
             chartPanel.BackColor = SystemColors.ActiveCaption;
             chartPanel.Location = new Point(12, 12);
             chartPanel.Name = "chartPanel";
@@ -44,11 +45,11 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(1144, 741);
             Controls.Add(chartPanel);
             Name = "Chart_Form";
-            Text = "Chart_Form";
+            Size = new Size(1144, 741);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

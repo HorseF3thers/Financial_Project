@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             chart_panel = new Panel();
             SPY_data_panel = new Panel();
+            richTextBox1 = new RichTextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
@@ -48,7 +49,6 @@
             HeatmapButton = new Button();
             financial_Data_Button = new Button();
             financialDataCB = new ComboBox();
-            richTextBox1 = new RichTextBox();
             SPY_data_panel.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -69,6 +69,14 @@
             SPY_data_panel.Name = "SPY_data_panel";
             SPY_data_panel.Size = new Size(347, 367);
             SPY_data_panel.TabIndex = 1;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(9, 12);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(323, 341);
+            richTextBox1.TabIndex = 0;
+            richTextBox1.Text = "";
             // 
             // contextMenuStrip1
             // 
@@ -176,6 +184,7 @@
             openChartButton.TabIndex = 12;
             openChartButton.Text = "Open Chart";
             openChartButton.UseVisualStyleBackColor = true;
+            openChartButton.Click += openChartButton_Click;
             // 
             // openChartCB
             // 
@@ -210,14 +219,6 @@
             financialDataCB.Name = "financialDataCB";
             financialDataCB.Size = new Size(182, 33);
             financialDataCB.TabIndex = 16;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(9, 12);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(323, 341);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
             // 
             // Main_Menu_Form
             // 
