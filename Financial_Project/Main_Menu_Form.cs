@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Financial_Project.Chart_Builder;
+using Financial_Project.ML_Dynamic_Linkage;
 
 namespace Financial_Project
 {
@@ -23,6 +24,7 @@ namespace Financial_Project
         List<string> duration = new List<string>();
         string durationString = "Compact";
         string durationStringTwo = "Compact";
+        string selectedMLModel = "SPY_Daily_Forecast_ML";
         public Main_Menu_Form()
         {
             InitializeComponent();
@@ -41,6 +43,13 @@ namespace Financial_Project
             durationCB.DataSource = duration;
             durationCBTwo.DataSource = duration;
             chartTypeCB.DataSource = chartTypeList;
+
+            ML_choice mL_Choice = new ML_choice();
+            mL_Choice.setMLmodel("SPY_Daily_ML");
+            mL_Choice.runMLprediction();
+            /**ML_choice mL_Choice = new ML_choice();
+            mL_Choice.setMLmodel("SPY_Daily_Forecast_ML");
+            mL_Choice.runMLprediction();**/
         }
 
         private void forecast_ML_Click(object sender, EventArgs e)

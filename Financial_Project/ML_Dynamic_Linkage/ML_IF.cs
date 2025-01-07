@@ -8,5 +8,6 @@ namespace Financial_Project.ML_Dynamic_Linkage
 {
     public interface ML_IF
     {
+        void createForm(double[] dataC, double[] dataLB, double[] dataUB);
     }
 }

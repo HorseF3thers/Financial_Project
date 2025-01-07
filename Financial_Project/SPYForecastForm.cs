@@ -23,7 +23,7 @@ namespace Financial_Project
 
             double[] dataUB = new double[SpyForecast.Close_UB.Length];
             Array.Copy(SpyForecast.Close_UB, dataUB, SpyForecast.Close_UB.Length);
-            double[] index = { 0, 1, 2, 3, 4 };
+            double[] index = { 1, 2, 3, 4, 5 };
 
 
             var sp = FormsPlot1.Plot.Add.Scatter(index, dataC, new ScottPlot.Color(0, 0, 255));

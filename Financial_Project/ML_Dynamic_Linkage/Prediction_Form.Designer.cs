@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Prediction_Form";
+            chartPanel = new Panel();
+            SuspendLayout();
+            // 
+            // chartPanel
+            // 
+            chartPanel.BackColor = SystemColors.ActiveBorder;
+            chartPanel.BorderStyle = BorderStyle.Fixed3D;
+            chartPanel.Location = new Point(232, 12);
+            chartPanel.Name = "chartPanel";
+            chartPanel.Size = new Size(734, 520);
+            chartPanel.TabIndex = 0;
+            // 
+            // Prediction_Form
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(978, 544);
+            Controls.Add(chartPanel);
+            Name = "Prediction_Form";
+            Text = "Prediction_Form";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        public Panel chartPanel;
     }
 }

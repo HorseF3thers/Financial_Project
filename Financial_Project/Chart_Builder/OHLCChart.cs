@@ -21,6 +21,7 @@ namespace Financial_Project.Chart_Builder
             FormsPlot plot = new FormsPlot();
             plot.Plot.Add.OHLC(Ohlc);
             plot.Plot.Axes.DateTimeTicksBottom();
+            plot.Plot.ScaleFactor = 2;
             return plot;
         }
 

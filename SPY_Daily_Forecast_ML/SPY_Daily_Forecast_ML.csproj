@@ -8,8 +8,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.ML.TimeSeries" Version="4.0.0" />
   </ItemGroup>
-  <ItemGroup Label="Test">
-    <None Include="Test.mlnet">
+  <ItemGroup>
+    <None Update="Test.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
