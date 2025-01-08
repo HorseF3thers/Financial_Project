@@ -186,9 +186,8 @@ namespace Financial_Project.ML_Dynamic_Linkage
                 Forecast_Form chart = new Forecast_Form();
                 chart.createForm(dataC, dataLB, dataUB);
 
-                chart.chartPanel.MinimumSize = new Size(1242, 864);
-                chart.chartPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                chart.chartPanel.AutoSize = true;
+                chart.chartPanel.MinimumSize = new Size(1142, 764);
+                chart.MinimumSize = new Size(1282, 904);
 
                 chart.chartPanel.BorderStyle = BorderStyle.Fixed3D;
 

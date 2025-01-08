@@ -35,5 +35,17 @@ namespace Financial_Project.ML_Dynamic_Linkage
             chart.Refresh();
             chartPanel.Controls.Add(chart);
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "PNG Image|*.png";
+            DialogResult result = saveFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string filePath = saveFileDialog1.FileName;
+                chart.Plot.SavePng(filePath, 500, 375);
+            }
+        }
     }
 }
