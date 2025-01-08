@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Financial_Project.Chart_Builder;
 using Financial_Project.ML_Dynamic_Linkage;
+using System.Xaml.Permissions;
 
 namespace Financial_Project
 {
@@ -20,11 +21,17 @@ namespace Financial_Project
         public readonly FormsPlot spy = new FormsPlot() { Dock = DockStyle.Fill };
         private API_Manager apiManager;
         string chartType = "Line";
-        List<string> chartTypeList = new List<string>();
-        List<string> duration = new List<string>();
+        List<string> chartTypeList = new List<string> { "OHLC", "Candlestick", "Line" };
+        List<string> duration = new List<string> { "Intraday", "Compact", "Full" };
         string durationString = "Compact";
         string durationStringTwo = "Compact";
         string selectedMLModel = "SPY_Daily_Forecast_ML";
+        string financialDataTicker = "SPY";
+
+        List<string> mlModels = new List<string> { "SPY_Daily_Forecast_ML", "SPY_Daily_ML", "SPY_Monthly_ML", "SPY_Weekly_ML", "XLB_Monthly_ML",
+                                "XLC_Monthly_ML", "XLE_Monthly_ML", "XLF_Monthly_ML", "XLI_Monthly_ML", "XLK_Monthly_ML", "XLP_Monthly_ML",
+                                "XLRE_Monthly_ML", "XLU_Monthly_ML", "XLV_Monthly_ML", "XLY_Monthly_ML"};
+
         public Main_Menu_Form()
         {
             InitializeComponent();
@@ -34,33 +41,15 @@ namespace Financial_Project
             form.Dock = DockStyle.Fill;
             chart_panel.Controls.Add(form);
 
-            chartTypeList.Add("OHLC");
-            chartTypeList.Add("Candlestick");
-            chartTypeList.Add("Line");
-            duration.Add("Intraday");
-            duration.Add("Compact");
-            duration.Add("Full");
             durationCB.DataSource = duration;
             durationCBTwo.DataSource = duration;
             chartTypeCB.DataSource = chartTypeList;
-
-            ML_choice mL_Choice = new ML_choice();
-            mL_Choice.setMLmodel("SPY_Daily_ML");
-            mL_Choice.runMLprediction();
-            /**ML_choice mL_Choice = new ML_choice();
-            mL_Choice.setMLmodel("SPY_Daily_Forecast_ML");
-            mL_Choice.runMLprediction();**/
+            mlCB.DataSource = mlModels;
         }
 
         private void forecast_ML_Click(object sender, EventArgs e)
         {
-            Thread thread = new Thread(() =>
-            {
-                SPYForecastForm form = new SPYForecastForm();
-                Application.Run(form);
-            });
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
+            ML_choice mL_Choice = new ML_choice(selectedMLModel);
         }
 
         private void openChartButton_Click(object sender, EventArgs e)
@@ -125,7 +114,7 @@ namespace Financial_Project
                 string ticker = tickerEntry.Text;
                 string chartType = chartTypeCB.Text;
                 bool darkMode = darkmodeCheck.Checked;
-                Chart_Form chart = new Chart_Form(chartType, ticker, durationString, darkMode); //duration to be added later
+                Chart_Form chart = new Chart_Form(chartType, ticker, durationString, darkMode);
                 chart.Dock = DockStyle.Fill;
                 chart.AutoSize = true;
                 chart.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -148,6 +137,32 @@ namespace Financial_Project
         private void durationCBTwo_SelectedIndexChanged(object sender, EventArgs e)
         {
             durationStringTwo = durationCBTwo.Text;
+        }
+
+        private void mlCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedMLModel = mlCB.Text;
+        }
+
+        private void financial_Data_Button_Click(object sender, EventArgs e)
+        {
+            Thread thread = new Thread(() =>
+            {
+                Company_Overview_Form company_Overview_Form = new Company_Overview_Form(financialDataTicker);
+                Application.Run(company_Overview_Form);
+            });
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void financialDataCB_TextChanged(object sender, EventArgs e)
+        {
+            financialDataTicker = financialDataCB.Text;
+        }
+
+        private void HeatmapButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

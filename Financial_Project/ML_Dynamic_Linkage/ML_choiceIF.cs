@@ -8,7 +8,6 @@ namespace Financial_Project.ML_Dynamic_Linkage
 {
     public interface ML_choiceIF
     {
-        void runMLprediction();
         void setMLmodel(String modelName);
     }
 }

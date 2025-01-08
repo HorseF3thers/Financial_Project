@@ -11,7 +11,7 @@
     <PackageReference Include="Plotly.NET" Version="3.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="XLU_Monthly_Test.mlnet">
+    <None Update="Test.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

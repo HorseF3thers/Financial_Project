@@ -14,9 +14,7 @@
     <None Update="Spy_Weekly_Test.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup Label="Spy_Weekly_Test">
-    <None Include="Spy_Weekly_Test.mlnet">
+    <None Update="Test.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

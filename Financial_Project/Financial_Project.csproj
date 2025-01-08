@@ -20,6 +20,17 @@
     <ProjectReference Include="..\SPY_Daily_ML\SPY_Daily_ML.csproj" />
     <ProjectReference Include="..\SPY_Monthly_ML\SPY_Monthly_ML.csproj" />
     <ProjectReference Include="..\SPY_Weekly_ML\SPY_Weekly_ML.csproj" />
+    <ProjectReference Include="..\XLB_Monthly_ML\XLB_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLC_Monthly_ML\XLC_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLE_Monthly_ML\XLE_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLF_Monthly_ML\XLF_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLI_Monthly_ML\XLI_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLK_Monthly_ML\XLK_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLP_Monthly_ML\XLP_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLRE_Monthly_ML\XLRE_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLU_Monthly_ML\XLU_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLV_Monthly_ML\XLV_Monthly_ML.csproj" />
+    <ProjectReference Include="..\XLY_Monthly_ML\XLY_Monthly_ML.csproj" />
   </ItemGroup>
   <ItemGroup Label="Test">
     <None Include="Test.mlnet">

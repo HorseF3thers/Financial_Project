@@ -183,6 +183,7 @@
             mlCB.Name = "mlCB";
             mlCB.Size = new Size(182, 33);
             mlCB.TabIndex = 11;
+            mlCB.SelectedIndexChanged += mlCB_SelectedIndexChanged;
             // 
             // openChartButton
             // 
@@ -210,6 +211,7 @@
             HeatmapButton.TabIndex = 14;
             HeatmapButton.Text = "Heatmap";
             HeatmapButton.UseVisualStyleBackColor = true;
+            HeatmapButton.Click += HeatmapButton_Click;
             // 
             // financial_Data_Button
             // 
@@ -219,6 +221,7 @@
             financial_Data_Button.TabIndex = 15;
             financial_Data_Button.Text = "Financial Data";
             financial_Data_Button.UseVisualStyleBackColor = true;
+            financial_Data_Button.Click += financial_Data_Button_Click;
             // 
             // financialDataCB
             // 
@@ -227,6 +230,7 @@
             financialDataCB.Name = "financialDataCB";
             financialDataCB.Size = new Size(182, 33);
             financialDataCB.TabIndex = 16;
+            financialDataCB.TextChanged += financialDataCB_TextChanged;
             // 
             // lineCheckbox
             // 

@@ -12,7 +12,7 @@ using Microsoft.ML.Trainers.FastTree;
 
 namespace SPY_Weekly_ML
 {
-    public partial class Spy_Weekly_Test
+    public partial class Test
     {
         public const string RetrainFilePath =  @"C:\Users\Josh E\Desktop\Data to train on\weekly_SPY.csv";
         public const char RetrainSeparatorChar = ',';

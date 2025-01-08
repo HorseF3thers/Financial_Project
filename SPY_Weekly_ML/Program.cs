@@ -4,7 +4,7 @@
 using SPY_Weekly_ML;
 
 // Create single instance of sample data from first line of dataset for model input
-Spy_Weekly_Test.ModelInput sampleData = new Spy_Weekly_Test.ModelInput()
+Test.ModelInput sampleData = new Test.ModelInput()
 {
     Timestamp = @"2024-12-24",
     Open = 590.89F,
@@ -26,7 +26,7 @@ Console.WriteLine($"Volume: " + sampleData.Volume);
 
 
 // Make a single prediction on the sample data and print results
-var predictionResult = Spy_Weekly_Test.Predict(sampleData);
+var predictionResult = Test.Predict(sampleData);
 Console.WriteLine($"\n\nPredicted Close: {predictionResult.Score}\n\n");
 
 Console.WriteLine("=============== End of process, hit any key to finish ===============");

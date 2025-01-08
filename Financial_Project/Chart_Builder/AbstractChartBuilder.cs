@@ -13,6 +13,7 @@ namespace Financial_Project.Chart_Builder
     {
         public JsonDocument data;
         public bool darkMode = false;
+        public string ticker;
         public static AbstractChartBuilder getInstance(string chartType)
         {
             switch
@@ -30,7 +31,8 @@ namespace Financial_Project.Chart_Builder
         }
         public void setData(string ticker, string timeframe)
         {
-            switch(timeframe)
+            this.ticker = ticker;
+            switch (timeframe)
             {
                 case "Intraday":
                     data = API_Manager.GetInstance().getIntraday(ticker);
@@ -49,7 +51,8 @@ namespace Financial_Project.Chart_Builder
         {
             this.darkMode = darkMode;
         }
-        public abstract void processData();
+        public abstract void processDataHistorical();
+        public abstract void processDataIntraday();
         public abstract FormsPlot buildChart();
     }
 }

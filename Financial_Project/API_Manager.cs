@@ -16,7 +16,7 @@ namespace Financial_Project
         private static API_Manager aMan = new API_Manager();
         private string apiKey;
         HttpClient client = new HttpClient();
-        JsonDocument data;
+        //JsonDocument data;
         private API_Manager()
         {
             string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -40,7 +40,7 @@ namespace Financial_Project
         public JsonDocument getFullHistorical(string ticker)
         {
             string address = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={ticker}&outputsize=full&entitlement=delayed&apikey={apiKey}";
-            data = CallApiAsync(address).Result;
+            JsonDocument data = CallApiAsync(address).Result;
             using (var stream = new MemoryStream())
             {
                 using (var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true }))
@@ -55,7 +55,7 @@ namespace Financial_Project
         public JsonDocument getShortHistorical(string ticker)
         {
             string address = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={ticker}&entitlement=delayed&apikey={apiKey}";
-            data = CallApiAsync(address).Result;
+            JsonDocument data = CallApiAsync(address).Result;
             using (var stream = new MemoryStream())
             {
                 using (var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true }))
@@ -69,7 +69,17 @@ namespace Financial_Project
 
         public JsonDocument getIntraday(string ticker)
         {
-            return data;//placeholder
+            string address = $"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={ticker}&interval=15min&entitlement=delayed&apikey={apiKey}";
+            JsonDocument data = CallApiAsync(address).Result;
+            using (var stream = new MemoryStream())
+            {
+                using (var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true }))
+                {
+                    data.WriteTo(writer);
+                }
+                string formattedJson = Encoding.UTF8.GetString(stream.ToArray());
+            }
+            return data;
         }
 
         public void setApiKey(string key)
@@ -87,6 +97,20 @@ namespace Financial_Project
                 Console.WriteLine($"Error reading API key from file: {ex.Message}");
                 return string.Empty;
             }
+        }
+        public JsonDocument getCompanyOverview(string ticker)
+        {
+            string address = $"https://www.alphavantage.co/query?function=OVERVIEW&symbol={ticker}&entitlement=delayed&apikey={apiKey}";
+            JsonDocument data = CallApiAsync(address).Result;
+            using (var stream = new MemoryStream())
+            {
+                using (var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true }))
+                {
+                    data.WriteTo(writer);
+                }
+                string formattedJson = Encoding.UTF8.GetString(stream.ToArray());
+            }
+            return data;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace SPY_Monthly_ML
         /// <returns>IDataView with loaded training data.</returns>
         public static IDataView LoadIDataViewFromFile(MLContext mlContext, string inputDataFilePath, char separatorChar, bool hasHeader, bool allowQuoting)
         {
-            return mlContext.Data.LoadFromTextFile<ModelInput>(inputDataFilePath, separatorChar, hasHeader, allowQuoting: allowQuoting);
+            return mlContext.Data.LoadFromTextFile<Test.ModelInput>(inputDataFilePath, separatorChar, hasHeader, allowQuoting: allowQuoting);
         }
 
 

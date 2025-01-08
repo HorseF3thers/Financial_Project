@@ -5,43 +5,40 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-namespace XLE_Monthly_ML
+namespace XLV_Monthly_ML
 {
     public partial class Test
     {
         /// <summary>
         /// model input class for Test.
         /// </summary>
-        #region model input class
         public class ModelInput
         {
             [LoadColumn(0)]
-            [ColumnName(@"timestamp")]
+            [ColumnName(@"DATE")]
             public string Timestamp { get; set; }
 
             [LoadColumn(1)]
-            [ColumnName(@"open")]
+            [ColumnName(@"OPEN")]
             public float Open { get; set; }
 
             [LoadColumn(2)]
-            [ColumnName(@"high")]
+            [ColumnName(@"HIGH")]
             public float High { get; set; }
 
             [LoadColumn(3)]
-            [ColumnName(@"low")]
+            [ColumnName(@"LOW")]
             public float Low { get; set; }
 
             [LoadColumn(4)]
-            [ColumnName(@"close")]
+            [ColumnName(@"CLOSE")]
             public float Close { get; set; }
 
             [LoadColumn(5)]
-            [ColumnName(@"volume")]
+            [ColumnName(@"VOLUME")]
             public float Volume { get; set; }
 
         }
-
-        #endregion
 
         /// <summary>
         /// model output class for Test.
@@ -77,7 +74,7 @@ namespace XLE_Monthly_ML
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("XLE_Monthly_Test.mlnet");
+        private static string MLNetModelPath = Path.GetFullPath("Test.mlnet");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 

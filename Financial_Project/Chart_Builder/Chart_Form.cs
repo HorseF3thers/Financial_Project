@@ -20,7 +20,14 @@ namespace Financial_Project.Chart_Builder
             AbstractChartBuilder chartBuilder = AbstractChartBuilder.getInstance(chartType);
             chartBuilder.setData(ticker, timeframe);
             chartBuilder.setDarkMode(darkMode);
-            chartBuilder.processData();
+            if (timeframe == "Intraday")
+            {
+                chartBuilder.processDataIntraday();
+            }
+            else
+            {
+                chartBuilder.processDataHistorical();
+            }
             chart = chartBuilder.buildChart();
             this.Controls.Add(chart);
             chart.Size = new Size(1202, 814);
