@@ -29,7 +29,7 @@ namespace Financial_Project
         string financialDataTicker = "SPY";
         string insiderTicker = "NVDA";
 
-        List<string> mlModels = new List<string> { "SPY_Daily_Forecast_ML", "SPY_Daily_ML", "SPY_Monthly_ML", "SPY_Weekly_ML", "XLB_Monthly_ML",
+        List<string> mlModels = new List<string> { "SPY_Daily_Forecast_ML", "QQQ_Daily_Forecast_ML", "TLT_Daily_Forecast_ML", "SPY_Daily_ML", "SPY_Monthly_ML", "SPY_Weekly_ML", "XLB_Monthly_ML",
                                 "XLC_Monthly_ML", "XLE_Monthly_ML", "XLF_Monthly_ML", "XLI_Monthly_ML", "XLK_Monthly_ML", "XLP_Monthly_ML",
                                 "XLRE_Monthly_ML", "XLU_Monthly_ML", "XLV_Monthly_ML", "XLY_Monthly_ML"};
 
@@ -174,11 +174,26 @@ namespace Financial_Project
 
                 panel.BorderStyle = BorderStyle.Fixed3D;
                 chart.MinimumSize = new Size(1800, 960);
-                form.Size = new Size(1920, 1080);
+                form.Size = new Size(2560, 1080);
                 form.AutoSize = true;
+
+                Panel textPanel = new Panel();
+                textPanel.MinimumSize = new Size(100, 980);
+                textPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                textPanel.AutoSize = true;
+                textPanel.BorderStyle = BorderStyle.Fixed3D;
+                RichTextBox textBox = new RichTextBox();
+                textBox.MinimumSize = new Size(100, 980);
+                textBox.AutoSize = true;
+                textBox.BorderStyle = BorderStyle.Fixed3D;
+                textPanel.Controls.Add(textBox);
+                textBox.Anchor = AnchorStyles.Right;
+                textBox.Dock = DockStyle.Fill;
 
                 panel.Controls.Add(chart);
                 form.Controls.Add(panel);
+                form.Controls.Add(textPanel);
+                form.Dock = DockStyle.Fill;
                 chart.Refresh();
                 Application.Run(form);
             });

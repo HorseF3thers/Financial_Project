@@ -16,10 +16,12 @@
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.47" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QQQ_Daily_Forecast_ML\QQQ_Daily_Forecast_ML.csproj" />
     <ProjectReference Include="..\SPY_Daily_Forecast_ML\SPY_Daily_Forecast_ML.csproj" />
     <ProjectReference Include="..\SPY_Daily_ML\SPY_Daily_ML.csproj" />
     <ProjectReference Include="..\SPY_Monthly_ML\SPY_Monthly_ML.csproj" />
     <ProjectReference Include="..\SPY_Weekly_ML\SPY_Weekly_ML.csproj" />
+    <ProjectReference Include="..\TLT_Daily_Forecast_ML\TLT_Daily_Forecast_ML.csproj" />
     <ProjectReference Include="..\XLB_Monthly_ML\XLB_Monthly_ML.csproj" />
     <ProjectReference Include="..\XLC_Monthly_ML\XLC_Monthly_ML.csproj" />
     <ProjectReference Include="..\XLE_Monthly_ML\XLE_Monthly_ML.csproj" />

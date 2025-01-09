@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML;
 
-namespace Financial_Project
+namespace QQQ_Daily_Forecast_ML
 {
     public partial class Test
     {

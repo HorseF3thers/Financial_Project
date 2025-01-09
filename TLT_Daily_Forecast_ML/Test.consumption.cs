@@ -8,7 +8,7 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.ML.Transforms.TimeSeries;
 
-namespace Financial_Project
+namespace TLT_Daily_Forecast_ML
 {
     public partial class Test
     {
