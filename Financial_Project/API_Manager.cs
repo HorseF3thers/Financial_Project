@@ -16,7 +16,6 @@ namespace Financial_Project
         private static API_Manager aMan = new API_Manager();
         private string apiKey;
         HttpClient client = new HttpClient();
-        //JsonDocument data;
         private API_Manager()
         {
             string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -101,6 +100,20 @@ namespace Financial_Project
         public JsonDocument getCompanyOverview(string ticker)
         {
             string address = $"https://www.alphavantage.co/query?function=OVERVIEW&symbol={ticker}&entitlement=delayed&apikey={apiKey}";
+            JsonDocument data = CallApiAsync(address).Result;
+            using (var stream = new MemoryStream())
+            {
+                using (var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true }))
+                {
+                    data.WriteTo(writer);
+                }
+                string formattedJson = Encoding.UTF8.GetString(stream.ToArray());
+            }
+            return data;
+        }
+        public JsonDocument getInsider(string ticker)
+        {
+            string address = $"https://www.alphavantage.co/query?function=INSIDER_TRANSACTIONS&symbol={ticker}&entitlement=delayed&apikey={apiKey}";
             JsonDocument data = CallApiAsync(address).Result;
             using (var stream = new MemoryStream())
             {

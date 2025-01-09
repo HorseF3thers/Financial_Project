@@ -27,6 +27,7 @@ namespace Financial_Project
         string durationStringTwo = "Compact";
         string selectedMLModel = "SPY_Daily_Forecast_ML";
         string financialDataTicker = "SPY";
+        string insiderTicker = "NVDA";
 
         List<string> mlModels = new List<string> { "SPY_Daily_Forecast_ML", "SPY_Daily_ML", "SPY_Monthly_ML", "SPY_Weekly_ML", "XLB_Monthly_ML",
                                 "XLC_Monthly_ML", "XLE_Monthly_ML", "XLF_Monthly_ML", "XLI_Monthly_ML", "XLK_Monthly_ML", "XLP_Monthly_ML",
@@ -160,9 +161,34 @@ namespace Financial_Project
             financialDataTicker = financialDataCB.Text;
         }
 
-        private void HeatmapButton_Click(object sender, EventArgs e)
+        private void InsiderButton_Click(object sender, EventArgs e)
         {
+            Thread thread = new Thread(() =>
+            {
+                Chart_Form chart = new Chart_Form("Bar", insiderTicker, "Insider", false);
+                Form form = new Form();
+                Panel panel = new Panel();
+                panel.MinimumSize = new Size(1820, 980);
+                panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                panel.AutoSize = true;
 
+                panel.BorderStyle = BorderStyle.Fixed3D;
+                chart.MinimumSize = new Size(1800, 960);
+                form.Size = new Size(1920, 1080);
+                form.AutoSize = true;
+
+                panel.Controls.Add(chart);
+                form.Controls.Add(panel);
+                chart.Refresh();
+                Application.Run(form);
+            });
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            insiderTicker = textBox1.Text;
         }
     }
 }

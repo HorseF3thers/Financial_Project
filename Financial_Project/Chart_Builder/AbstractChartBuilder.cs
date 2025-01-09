@@ -25,6 +25,8 @@ namespace Financial_Project.Chart_Builder
                     return new ScatterPlot();
                 case "OHLC":
                     return new OHLCChart();
+                case "Bar":
+                    return new BarChart();
                 default:
                     return null;
             }
@@ -42,6 +44,9 @@ namespace Financial_Project.Chart_Builder
                     break;
                 case "Full":
                     data = API_Manager.GetInstance().getFullHistorical(ticker);
+                    break;
+                case "Insider":
+                    data = API_Manager.GetInstance().getInsider(ticker);
                     break;
                 default:
                     break;

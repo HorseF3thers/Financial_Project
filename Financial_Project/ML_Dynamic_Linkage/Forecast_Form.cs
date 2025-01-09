@@ -44,7 +44,7 @@ namespace Financial_Project.ML_Dynamic_Linkage
             if (result == DialogResult.OK)
             {
                 string filePath = saveFileDialog1.FileName;
-                chart.Plot.SavePng(filePath, 500, 375);
+                chart.Plot.SavePng(filePath, 1142, 764);
             }
         }
     }

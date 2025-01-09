@@ -46,7 +46,7 @@
             mlCB = new ComboBox();
             openChartButton = new Button();
             openChartCB = new ComboBox();
-            HeatmapButton = new Button();
+            InsiderButton = new Button();
             financial_Data_Button = new Button();
             financialDataCB = new ComboBox();
             lineCheckbox = new CheckBox();
@@ -54,6 +54,7 @@
             candleCheckbox = new CheckBox();
             newChartButton = new Button();
             durationCBTwo = new ComboBox();
+            textBox1 = new TextBox();
             SPY_data_panel.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -203,15 +204,15 @@
             openChartCB.Size = new Size(182, 33);
             openChartCB.TabIndex = 13;
             // 
-            // HeatmapButton
+            // InsiderButton
             // 
-            HeatmapButton.Location = new Point(209, 866);
-            HeatmapButton.Name = "HeatmapButton";
-            HeatmapButton.Size = new Size(150, 50);
-            HeatmapButton.TabIndex = 14;
-            HeatmapButton.Text = "Heatmap";
-            HeatmapButton.UseVisualStyleBackColor = true;
-            HeatmapButton.Click += HeatmapButton_Click;
+            InsiderButton.Location = new Point(209, 866);
+            InsiderButton.Name = "InsiderButton";
+            InsiderButton.Size = new Size(150, 50);
+            InsiderButton.TabIndex = 14;
+            InsiderButton.Text = "Insider";
+            InsiderButton.UseVisualStyleBackColor = true;
+            InsiderButton.Click += InsiderButton_Click;
             // 
             // financial_Data_Button
             // 
@@ -286,12 +287,22 @@
             durationCBTwo.TabIndex = 21;
             durationCBTwo.SelectedIndexChanged += durationCBTwo_SelectedIndexChanged;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(34, 876);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(150, 31);
+            textBox1.TabIndex = 22;
+            textBox1.Text = "Ticker";
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
             // Main_Menu_Form
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(1609, 996);
+            Controls.Add(textBox1);
             Controls.Add(durationCBTwo);
             Controls.Add(newChartButton);
             Controls.Add(candleCheckbox);
@@ -299,7 +310,7 @@
             Controls.Add(lineCheckbox);
             Controls.Add(financialDataCB);
             Controls.Add(financial_Data_Button);
-            Controls.Add(HeatmapButton);
+            Controls.Add(InsiderButton);
             Controls.Add(openChartCB);
             Controls.Add(openChartButton);
             Controls.Add(mlCB);
@@ -339,7 +350,7 @@
         private ComboBox mlCB;
         private Button openChartButton;
         private ComboBox openChartCB;
-        private Button HeatmapButton;
+        private Button InsiderButton;
         private Button financial_Data_Button;
         private ComboBox financialDataCB;
         private RichTextBox richTextBox1;
@@ -348,5 +359,6 @@
         private CheckBox candleCheckbox;
         private Button newChartButton;
         private ComboBox durationCBTwo;
+        private TextBox textBox1;
     }
 }
