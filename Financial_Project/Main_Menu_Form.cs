@@ -39,6 +39,7 @@ namespace Financial_Project
 
             apiManager = API_Manager.GetInstance();
             Chart_Form form = new Chart_Form("Candlestick", "SPY", "Compact", false);
+            form.resizeChart(1309, 833);
             form.Dock = DockStyle.Fill;
             chart_panel.Controls.Add(form);
 
@@ -62,16 +63,21 @@ namespace Financial_Project
                 Chart_Form chart = new Chart_Form(chartType, ticker, durationStringTwo, false);
                 Form form = new Form();
                 Panel panel = new Panel();
-                panel.Size = new Size(1242, 864);
+                form.Size = new Size(1920, 1080);
+                panel.Size = new Size(1900, 1000);
                 panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 panel.AutoSize = true;
 
                 panel.BorderStyle = BorderStyle.Fixed3D;
-                chart.Size = new Size(1202, 814);
-                form.Size = new Size(1362, 974);
+                chart.Size = new Size(1900, 1000);
+                //chart.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                chart.resizeChart(1850, 950);
+
 
                 panel.Controls.Add(chart);
                 form.Controls.Add(panel);
+                chart.Refresh();
+
                 Application.Run(form);
             });
             thread.SetApartmentState(ApartmentState.STA);
@@ -167,33 +173,47 @@ namespace Financial_Project
             {
                 Chart_Form chart = new Chart_Form("Bar", insiderTicker, "Insider", false);
                 Form form = new Form();
-                Panel panel = new Panel();
-                panel.MinimumSize = new Size(1820, 980);
-                panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                panel.AutoSize = true;
+                form.Size = new Size(2460, 1180);
+                form.AutoSize = true;
 
+                SplitContainer splitContainer = new SplitContainer();
+                splitContainer.Dock = DockStyle.Fill;
+                splitContainer.Orientation = System.Windows.Forms.Orientation.Vertical;
+                splitContainer.SplitterDistance = 125;
+                
+
+                Panel panel = new Panel();
+                panel.MinimumSize = new Size(1820, 1150);
+                panel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 panel.BorderStyle = BorderStyle.Fixed3D;
-                chart.MinimumSize = new Size(1800, 960);
-                form.Size = new Size(2560, 1080);
+                chart.MinimumSize = new Size(1800, 1135);
+                chart.resizeChart(1800, 1025);
+                panel.Controls.Add(chart);
+                form.Size = new Size(2460, 1180);
                 form.AutoSize = true;
 
                 Panel textPanel = new Panel();
-                textPanel.MinimumSize = new Size(100, 980);
+                textPanel.MinimumSize = new Size(1000, 980);
                 textPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                textPanel.AutoSize = true;
                 textPanel.BorderStyle = BorderStyle.Fixed3D;
+                textPanel.Dock = DockStyle.Fill;
                 RichTextBox textBox = new RichTextBox();
-                textBox.MinimumSize = new Size(100, 980);
+                textBox.MinimumSize = new Size(1000, 980);
                 textBox.AutoSize = true;
                 textBox.BorderStyle = BorderStyle.Fixed3D;
                 textPanel.Controls.Add(textBox);
                 textBox.Anchor = AnchorStyles.Right;
                 textBox.Dock = DockStyle.Fill;
+                textBox.ReadOnly = true;
 
-                panel.Controls.Add(chart);
-                form.Controls.Add(panel);
-                form.Controls.Add(textPanel);
-                form.Dock = DockStyle.Fill;
+                API_Manager apiManager = API_Manager.GetInstance();
+                string insiderData = apiManager.insiderDataProcessed(apiManager.getInsider(insiderTicker));
+                textBox.Text = insiderData;
+
+                splitContainer.Panel1.Controls.Add(panel);
+                splitContainer.Panel2.Controls.Add(textPanel);
+
+                form.Controls.Add(splitContainer);
                 chart.Refresh();
                 Application.Run(form);
             });

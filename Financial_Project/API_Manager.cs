@@ -123,7 +123,25 @@ namespace Financial_Project
                 }
                 string formattedJson = Encoding.UTF8.GetString(stream.ToArray());
             }
-            return data;
+            return data;//I need to add checks that the data exists here before moving on
         }
+        public string insiderDataProcessed(JsonDocument data)
+        {
+            string processedData = "";
+            JsonElement root = data.RootElement;
+            JsonElement transactions = root.GetProperty("data");
+            foreach (JsonElement transaction in transactions.EnumerateArray())
+            {
+                string date = transaction.GetProperty("transaction_date").GetString();
+                string type = transaction.GetProperty("acquisition_or_disposal").GetString();
+                string shares = transaction.GetProperty("shares").GetString();
+                string price = transaction.GetProperty("share_price").GetString();
+                string name = transaction.GetProperty("executive").GetString();
+                string title = transaction.GetProperty("executive_title").GetString();
+                processedData += $"Date: {date} Type: {type} Shares: {shares} Price: {price} Name: {name} Title: {title}\n";
+            }
+            return processedData;
+        }
+
     }
 }

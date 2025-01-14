@@ -30,6 +30,7 @@
         {
             chartPanel = new Panel();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            refreshButton = new Button();
             SuspendLayout();
             // 
             // chartPanel
@@ -45,18 +46,30 @@
             chartPanel.Size = new Size(500, 250);
             chartPanel.TabIndex = 0;
             // 
+            // refreshButton
+            // 
+            refreshButton.Dock = DockStyle.Bottom;
+            refreshButton.Location = new Point(0, 281);
+            refreshButton.Name = "refreshButton";
+            refreshButton.Size = new Size(515, 34);
+            refreshButton.TabIndex = 1;
+            refreshButton.Text = "Refresh";
+            refreshButton.UseVisualStyleBackColor = true;
+            refreshButton.Click += refreshButton_Click;
+            // 
             // Chart_Form
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ActiveBorder;
+            Controls.Add(refreshButton);
             Controls.Add(chartPanel);
             MaximumSize = new Size(1920, 1080);
+            MinimumSize = new Size(525, 325);
             Name = "Chart_Form";
             Padding = new Padding(0, 0, 10, 10);
-            Size = new Size(525, 275);
+            Size = new Size(525, 325);
             Resize += Chart_Form_Resize;
             ResumeLayout(false);
             PerformLayout();
@@ -66,5 +79,6 @@
 
         private Panel chartPanel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button refreshButton;
     }
 }

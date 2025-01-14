@@ -61,10 +61,11 @@
             // 
             // chart_panel
             // 
+            chart_panel.AutoSize = true;
             chart_panel.BackColor = SystemColors.ActiveCaption;
             chart_panel.Location = new Point(365, 140);
             chart_panel.Name = "chart_panel";
-            chart_panel.Size = new Size(1232, 844);
+            chart_panel.Size = new Size(1360, 925);
             chart_panel.TabIndex = 0;
             // 
             // SPY_data_panel
@@ -301,7 +302,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            ClientSize = new Size(1609, 996);
+            ClientSize = new Size(1737, 1077);
             Controls.Add(textBox1);
             Controls.Add(durationCBTwo);
             Controls.Add(newChartButton);
