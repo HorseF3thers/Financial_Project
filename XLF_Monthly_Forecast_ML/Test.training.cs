@@ -7,11 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML;
 
-namespace XLB_Monthly_ML
+namespace XLF_Monthly_Forecast_ML
 {
     public partial class Test
     {
-        public const string RetrainFilePath =  @"C:\Users\Josh E\Desktop\Data to train on\monthly_XLB.csv";
+        public const string RetrainFilePath =  @"C:\Users\Josh E\Desktop\Data to train on\monthly_XLF.csv";
         public const char RetrainSeparatorChar = ',';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;

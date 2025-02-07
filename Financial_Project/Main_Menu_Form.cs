@@ -29,9 +29,9 @@ namespace Financial_Project
         string financialDataTicker = "SPY";
         string insiderTicker = "NVDA";
 
-        List<string> mlModels = new List<string> { "SPY_Daily_Forecast_ML", "QQQ_Daily_Forecast_ML", "TLT_Daily_Forecast_ML", "SPY_Daily_ML", "SPY_Monthly_ML", "SPY_Weekly_ML", "XLB_Monthly_ML",
-                                "XLC_Monthly_ML", "XLE_Monthly_ML", "XLF_Monthly_ML", "XLI_Monthly_ML", "XLK_Monthly_ML", "XLP_Monthly_ML",
-                                "XLRE_Monthly_ML", "XLU_Monthly_ML", "XLV_Monthly_ML", "XLY_Monthly_ML"};
+        List<string> mlModels = new List<string> { "SPY_Daily_Forecast_ML", "QQQ_Daily_Forecast_ML", "TLT_Daily_Forecast_ML", "SPY_Daily_ML", "SPY_Monthly_ML", "SPY_Weekly_ML", "XLB_Monthly_Forecast_ML",
+                                "XLC_Monthly_Forecast_ML", "XLE_Monthly_Forecast_ML", "XLF_Monthly_Forecast_ML", "XLI_Monthly_Forecast_ML", "XLK_Monthly_Forecast_ML", "XLP_Monthly_Forecast_ML",
+                                "XLRE_Monthly_Forecast_ML", "XLU_Monthly_Forecast_ML", "XLV_Monthly_Forecast_ML", "XLY_Monthly_Forecast_ML"};
 
         public Main_Menu_Form()
         {

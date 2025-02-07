@@ -106,9 +106,9 @@
             // 
             // forecast_ML_Button
             // 
-            forecast_ML_Button.Location = new Point(209, 551);
+            forecast_ML_Button.Location = new Point(240, 551);
             forecast_ML_Button.Name = "forecast_ML_Button";
-            forecast_ML_Button.Size = new Size(150, 50);
+            forecast_ML_Button.Size = new Size(119, 50);
             forecast_ML_Button.TabIndex = 2;
             forecast_ML_Button.Text = "Forecast ML";
             forecast_ML_Button.UseVisualStyleBackColor = true;
@@ -183,15 +183,15 @@
             mlCB.FormattingEnabled = true;
             mlCB.Location = new Point(21, 561);
             mlCB.Name = "mlCB";
-            mlCB.Size = new Size(182, 33);
+            mlCB.Size = new Size(213, 33);
             mlCB.TabIndex = 11;
             mlCB.SelectedIndexChanged += mlCB_SelectedIndexChanged;
             // 
             // openChartButton
             // 
-            openChartButton.Location = new Point(209, 613);
+            openChartButton.Location = new Point(240, 613);
             openChartButton.Name = "openChartButton";
-            openChartButton.Size = new Size(150, 50);
+            openChartButton.Size = new Size(119, 50);
             openChartButton.TabIndex = 12;
             openChartButton.Text = "Open Chart";
             openChartButton.UseVisualStyleBackColor = true;
@@ -202,7 +202,7 @@
             openChartCB.FormattingEnabled = true;
             openChartCB.Location = new Point(21, 620);
             openChartCB.Name = "openChartCB";
-            openChartCB.Size = new Size(182, 33);
+            openChartCB.Size = new Size(213, 33);
             openChartCB.TabIndex = 13;
             // 
             // InsiderButton
@@ -217,9 +217,9 @@
             // 
             // financial_Data_Button
             // 
-            financial_Data_Button.Location = new Point(209, 755);
+            financial_Data_Button.Location = new Point(218, 755);
             financial_Data_Button.Name = "financial_Data_Button";
-            financial_Data_Button.Size = new Size(150, 50);
+            financial_Data_Button.Size = new Size(141, 50);
             financial_Data_Button.TabIndex = 15;
             financial_Data_Button.Text = "Financial Data";
             financial_Data_Button.UseVisualStyleBackColor = true;
@@ -284,7 +284,7 @@
             durationCBTwo.FormattingEnabled = true;
             durationCBTwo.Location = new Point(21, 668);
             durationCBTwo.Name = "durationCBTwo";
-            durationCBTwo.Size = new Size(182, 33);
+            durationCBTwo.Size = new Size(213, 33);
             durationCBTwo.TabIndex = 21;
             durationCBTwo.SelectedIndexChanged += durationCBTwo_SelectedIndexChanged;
             // 

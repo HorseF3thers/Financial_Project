@@ -8,7 +8,7 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.ML.Transforms.TimeSeries;
 
-namespace XLB_Monthly_ML
+namespace XLC_Monthly_Forecast_ML
 {
     public partial class Test
     {
@@ -45,7 +45,7 @@ namespace XLB_Monthly_ML
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath(@"C:\Users\Josh E\source\repos\Financial_Project\XLB_Monthly_ML\Test.mlnet");
+        private static string MLNetModelPath = Path.GetFullPath(@"C:\Users\Josh E\source\repos\Financial_Project\XLC_Monthly_Forecast_ML\Test.mlnet");
 
         public static readonly Lazy<TimeSeriesPredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<TimeSeriesPredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 

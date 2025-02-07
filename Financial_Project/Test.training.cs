@@ -11,7 +11,7 @@ namespace Financial_Project
 {
     public partial class Test
     {
-        public const string RetrainFilePath =  @"C:\Users\Josh E\Downloads\daily_QQQ.csv";
+        public const string RetrainFilePath =  @"C:\Users\Josh E\Desktop\Data to train on\monthly_XLY.csv";
         public const char RetrainSeparatorChar = ',';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;
@@ -87,7 +87,7 @@ namespace Financial_Project
         public static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations
-            var pipeline = mlContext.Forecasting.ForecastBySsa(windowSize:2,seriesLength:10,trainSize:6337,horizon:5,outputColumnName:@"close",inputColumnName:@"close",confidenceLowerBoundColumn:@"close_LB",confidenceUpperBoundColumn:@"close_UB");
+            var pipeline = mlContext.Forecasting.ForecastBySsa(windowSize:3,seriesLength:5,trainSize:302,horizon:5,outputColumnName:@"close",inputColumnName:@"close",confidenceLowerBoundColumn:@"close_LB",confidenceUpperBoundColumn:@"close_UB");
 
             return pipeline;
         }

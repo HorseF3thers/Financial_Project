@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML;
 
-namespace XLB_Monthly_ML
+namespace XLB_Monthly_Forecast_ML
 {
     public partial class Test
     {
