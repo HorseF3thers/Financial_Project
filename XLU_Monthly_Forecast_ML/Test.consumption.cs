@@ -45,7 +45,7 @@ namespace XLU_Monthly_Forecast_ML
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath(@"C:\Users\Josh E\source\repos\Financial_Project\XLU_Monthly_forecast_ML\Test.mlnet");
+        private static string MLNetModelPath = Path.GetFullPath(@"C:\Users\Josh E\source\repos\Financial_Project\XLU_Monthly_Forecast_ML\Test.mlnet");
 
         public static readonly Lazy<TimeSeriesPredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<TimeSeriesPredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
